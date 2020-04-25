@@ -4,21 +4,16 @@ var io = require('socket.io')(http);
 
 const messages = [];
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
-
 io.on('connection', (socket) => {
-  io.emit('new user', messages);
+  io.emit('update-messages', messages);
 
-  socket.on('chat message', (msg) => {
+  socket.on('new-message', (msg) => {
     messages.push(msg);
-    io.emit('chat message', msg);
-    console.log('message: ' + msg);
+    io.emit('update-messages', messages);
   });
 
 });
 
-http.listen(3000, () => {
-  console.log('listening on *:3000');
+http.listen(8000, () => {
+  console.log('listening on *:8000');
 });
