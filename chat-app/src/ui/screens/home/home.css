@@ -1,0 +1,71 @@
+ html, body {
+   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+ }
+ 
+ * {
+  box-sizing: border-box;
+ }
+
+ ::-webkit-scrollbar {
+  display: none;
+}
+
+ .home--container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+.home--wrapper {
+  width: 500px;
+  height: 95vh;
+  background-color: #F1F1F1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.home--messages {
+  width: 100%;
+  flex-grow: 1;
+  background-color: #F1F1F1;
+  display: flex;
+  overflow: scroll;
+  flex-direction: column;
+}
+
+.home-bottom-wrapper {
+  display: flex;
+}
+
+.home--text-input {
+  border-width: 0;
+  height: 40px;
+  display: flex;
+  flex-grow: 1;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+
+.home--text-input:focus {
+  outline: none;
+}
+
+.home--submit-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+  border-width: 0;
+}
+
+.home--submit-button:focus {
+  outline: none;
+}
+
+.home--submit-button:active {
+  transform: scale(1.1);
+}
