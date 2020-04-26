@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+import io from 'socket.io-client';
 
 import './home.css';
+
+const socket = io('http://localhost:8000');
 
 export function HomeScreen() {
   const [message, setMessage] = useState('');
@@ -8,6 +11,12 @@ export function HomeScreen() {
 
   const scrollTargetRef = useRef(null)
   const messageInputRef = useRef(null)
+
+  useEffect(() => {
+    socket.on('update-messages', function(data){ 
+      setMessages(data);
+    });
+  }, [])
 
   const handleChange = (e) => {
     setMessage(e.target.value)
@@ -22,11 +31,12 @@ export function HomeScreen() {
 
     if (!message) return
 
-    setMessages([...messages, {
+    socket.emit('new-message', {
       author: 'Lucas',
       content: message,
       id: Math.random()*100
-    }]);
+    })
+
     setMessage('');
   }
 
