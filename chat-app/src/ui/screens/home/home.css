@@ -2,7 +2,23 @@
    margin: 0;
   font-family: Arial, Helvetica, sans-serif;
  }
- 
+
+ button {
+  border-width: 0;
+ }
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  transform: scale(1.1);
+}
+
+input:focus {
+  outline: none;
+}
+
  * {
   box-sizing: border-box;
  }
@@ -17,8 +33,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #FFFFFF;
+  background-color: #232323;
 }
+
 .home--wrapper {
   width: 500px;
   height: 95vh;
@@ -26,6 +43,7 @@
   padding: 40px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .home--messages {
@@ -41,7 +59,7 @@
   display: flex;
 }
 
-.home--text-input {
+.home--input {
   border-width: 0;
   height: 40px;
   display: flex;
@@ -50,22 +68,26 @@
   padding: 0 10px;
 }
 
-.home--text-input:focus {
-  outline: none;
-}
-
 .home--submit-button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-left: 10px;
-  border-width: 0;
 }
 
-.home--submit-button:focus {
-  outline: none;
+.home--name-container {
+  width: 200px;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  display: flex;
+
 }
 
-.home--submit-button:active {
-  transform: scale(1.1);
+.button__close {
+  padding: 15px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #F1F1F1;
 }
